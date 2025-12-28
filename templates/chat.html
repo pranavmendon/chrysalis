@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lume Chat</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css') }}">
+</head>
+<body>
+
+<div class="chat-wrap">
+    <div class="header">
+        <span>Lume Companion</span>
+        <button class="btn-clear" onclick="clearHistory()">Clear Chat</button>
+    </div>
+    <div id="flow">
+        {% for chat in history %}
+            <div class="bubble {{ chat.role }}">{{ chat.content | safe }}</div>
+        {% endfor %}
+    </div>
+    <div class="input-box">
+        <input type="text" id="msg-in" placeholder="Talk to Lume..." onkeypress="if(event.key==='Enter') send()">
+        <button class="btn-send" onclick="send()">Send</button>
+    </div>
+</div>
+
+<script>
+    const flow = document.getElementById('flow');
+    flow.scrollTop = flow.scrollHeight;
+
+    async function send() {
+        const input = document.getElementById('msg-in');
+        const text = input.value.trim();
+        if (!text) return;
+
+        appendBubble(text, 'user');
+        input.value = '';
+        const tempId = appendBubble("Lume is thinking...", 'model'); 
+
+        const res = await fetch('/ask', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: text })
+        });
+        const data = await res.json();
+        
+       
+        const target = document.getElementById(tempId);
+        if (target) {
+            target.innerHTML = marked.parse(data.response);
+        }
+        flow.scrollTop = flow.scrollHeight;
+    }
+
+    async function clearHistory() {
+        if (!confirm("Clear all messages?")) return;
+        await fetch('/clear_chat', { method: 'POST' });
+        flow.innerHTML = '';
+        appendBubble("History cleared. How are you feeling?", 'model');
+    }
+
+    function appendBubble(content, role) {
+        const id = 'msg-' + Date.now() + '-' + Math.floor(Math.random() * 1000);
+        const div = document.createElement('div');
+        div.className = `bubble ${role}`;
+        div.id = id;
+        div.innerHTML = (role === 'model' && content !== "Lume is thinking...") ? marked.parse(content) : content;
+        flow.appendChild(div);
+        flow.scrollTop = flow.scrollHeight;
+        return id;
+    }
+</script>
+</body>
+</html>

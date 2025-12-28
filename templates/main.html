@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lume | Your Digital Companion</title>
+    <link rel="stylesheet" href="{{url_for( 'static',filename='css/main.css' )}}">
+</head>
+<body>
+    <header>
+        <div class="head1">
+            <span class="logo">LUME</span>
+            <a href="{{ url_for('profile') }}"><img class="img" src="{{url_for( 'static',filename='images/user.jpg' )}}" alt="User Profile"></a>
+        </div>
+        <nav class="navbar">
+            <a href="{{ url_for('index') }}" style="text-decoration: none;">
+                <div class="nav">Home</div>
+            </a>
+            <div class="div"></div>
+            <a href="{{ url_for('about') }}" style="text-decoration: none;">
+                <div class="nav">About</div>
+            </a>
+            <div class="div"></div>
+            <a href="{{ url_for('contactus') }}" style="text-decoration: none;">
+                <div class="nav">Contact Us</div>
+            </a>
+            <div class="div"></div>
+            <a href="{{ url_for('contactus') }}" style="text-decoration: none;">
+                <div class="nav">Need Help?</div>
+            </a>
+        </nav>
+    </header>
+    <main class="welcome-box">
+    <h1 class="text">WELCOME {{ username }}</h1>
+    <p class="text1">
+        Lume is an advanced mental health chatbot designed to provide a safe, non-judgmental space to help you with supportive listening and wellness guidance. It acts as your digital companion, helping you navigate your emotional well-being through insightful, real-time conversations.
+    </p>
+    
+    <div class="btn-container">
+        <a href="/chatpage" style="text-decoration: none;"><button class="chat-btn">CHAT WITH LUME</button></a>
+    </div>
+</main>
+</body>
+</html>

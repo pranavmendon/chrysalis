@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lume | Profile</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
+</head>
+<body class="profile-page">
+    <header>
+        <div class="head1">
+            <span class="logo">LUME</span>
+            <a href="{{ url_for( 'main' ) }}" style="text-decoration: none;" class="nav-link">Back to Home</a>
+        </div>
+    </header>
+
+    <main class="profile-container">
+        <div class="profile-card">
+            <div class="profile-pic-large">
+                <img src="{{ url_for('static' , filename='images/user.jpg') }}" alt="Profile Picture">
+            </div>
+            
+            <div class="profile-info">
+                <span class="label">USERNAME:</span>
+                <h2 class="username-display">{{ username }}</h2>
+            </div>
+
+            <div class="profile-details">
+                <div class="detail-item1">
+                    <span>Member Since:</span>
+                    <p>December 2024</p>
+                </div>
+                <div class="detail-item">
+                    <span>Account Status:</span>
+                    <p>Active</p>
+                </div>
+            </div>
+
+            <a href="{{ url_for('logout') }}" style="text-decoration: none;"><button class="logout-btn">LOG OUT</button>
+        </div>
+    </main>
+</body>
+</html>

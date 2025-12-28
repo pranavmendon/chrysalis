@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/start.css') }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lume | Home</title>
+</head><br>
+<span class="logo" >LUME</span> 
+<body class="start">
+    <div class="nav-wrapper">
+    <nav class="nav-pill">
+        <a href="/" style="text-decoration: none;"><div class="nav-item">
+            <span>Home</span>
+        </div></a>
+        
+        <div class="divider"></div>
+        
+        <a href="/about" style="text-decoration: none;"><div  class="nav-item">
+            <span>About</span>
+        </div></a>
+        
+        <div class="divider"></div>
+        
+        <a href="/contactus" style="text-decoration: none;"><div class="nav-item">
+            <span>Contact Us</span>
+        </div></a>
+    </nav>
+</div>
+<br><br><br><br>
+<div class="mid"><span>Welcome to <span class="mid1">LUME</span>, a dedicated mental health chatbot designed to provide supportive listening and wellness guidance. It helps users navigate their emotional well-being through safe, accessible, and insightful conversations.</span></div>
+<br>
+{% if session.get('user') %}
+    <a href="/main" style="text-decoration: none;" class="but">Go to Dashboard</a>
+{% else %}
+    <a href="/signup" style="text-decoration: none;"><div class="but">Get Started</div></a>
+{% endif %}
+
+</body>
+</html>

@@ -1,0 +1,191 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font: inherit;
+    font-family: lume;
+
+}
+body{
+   margin: 0;
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
+   background-color: #0a0d32;
+   background: linear-gradient(rgba(7, 11, 65, 0.85), rgba(5, 8, 54, 0.85)),url('images/image.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #080b34;
+    margin: 0;
+    min-height: 100vh;
+   
+}
+@font-face{
+    font-family: lume;
+    src: url(olario-free.regular.ttf);
+}
+.registerbox{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    
+}
+.wrap .inputbox{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 24px;
+    margin: 10px 0; 
+    padding: 5px; 
+    
+    
+    
+}
+.wrap{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    background-color: #0b192f;
+    background: radial-gradient(ellipse at top left,
+    #a7edfbe6 0%, rgba(255,255,255,0.05)100%);
+    backdrop-filter: blur(10px);
+    width: 450px;
+    height: 450px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 25px;
+    box-shadow: 0px 8px 32px 0 rgb(0,0,0,0.37);
+    transition: transform 0.2s ease-in-out;
+    animation: fadeIn 1.2s ease forwards;
+
+}
+
+.wrap h1{
+    color: #0d1031;
+    font-size: 86px;
+    text-align: center;
+    padding: 5px;
+    text-shadow: 2px 2px 2px rgb(59, 59, 63);
+    transition: transform 0.3s ease-in-out;
+
+
+
+}
+.wrap h1:hover{
+    text-shadow: 2px 2px 2px darkblue;
+    transform: scale(1.03);
+}
+.wrap .button{
+    width: 100%;
+    height: 55px;
+    background: #0a0d32;
+    color: #F5F7FA;
+    border: 1px solid;
+    border-radius: 40px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgb(5, 5, 43) ;
+    font-weight: 600;
+    font-size: 25px;
+    transition: transform 0.3s ease-out;
+    margin-top: 18px;
+}
+.wrap .button:hover{
+    color: white;
+    background-color: #080b34;
+    transform: scale(1.03);
+}
+
+.rememberme{
+    margin-top: 5px;
+    margin-bottom: 15px;
+    font-weight: 500;
+    font-size: 25px;
+    padding: 8px;
+}
+.register{
+    padding: 20px;
+    font-size: 20px;
+ 
+}
+.inputbox{
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 2px;
+}
+.inputbox .icon1{
+    position: absolute;
+    left: -19px;
+    top: 10%;
+}
+.inputbox .icon2{
+    position: absolute;
+    left: -19px;
+    top: 60%;
+}
+.inputbox input{
+    flex: 1;
+    width: 270px;
+    height: 40px;
+    border: 2px solid;
+    border-radius: 8px;
+    padding: 5px;
+    gap: 15px;
+    color: black;
+}
+.wrap .rememberme:hover{
+    color: rgb(4, 4, 51);
+}
+.wrap .register-link{
+    font-size: 15px;
+    font-weight: 600;
+}
+.wrap .registerbtn{
+    color: #0f133b;
+}
+#particle-js{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #080b29;
+  z-index: -1;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+.flash-messages {
+            background: #ffe5e5;
+            color: #d8000c;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            border: 1px solid #d8000c;
+        }
+.login{
+    padding: 20px;
+    font-size: 20px;
+ 
+}
+.wrap .loginbtn{
+    color: #0f133b;
+}
